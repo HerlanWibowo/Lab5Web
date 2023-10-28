@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validasi Form</title>
+</head>
+<body>
+    <form id="myForm" onsubmit="return validateForm()">
+        <label for="nama">Nama:</label><br>
+        <input type="text" id="nama" name="nama"><br>
+        <br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+        
+        <p id="errorText" style="color: red;"></p>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validateForm() {
+            var nama = document.getElementById("nama").value;
+            var password = document.getElementById("password").value;
+            var errorText = document.getElementById("errorText");
+
+            if (nama === "" || password === "") {
+                errorText.innerHTML = "Nama dan Password harus diisi.";
+                return false; 
+            }
+
+            if (password.length < 6) {
+                errorText.innerHTML = "Password harus terdiri dari minimal 6 karakter.";
+                return false; 
+            }
+            
+            return true; 
+        }
+    </script>
+</body>
+</html>
